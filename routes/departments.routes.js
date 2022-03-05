@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Department = require('../models/department.model');
+const Department = require('../models/department.models');
 
 router.get('/departments', async (req, res) => {
   try {
@@ -48,7 +48,7 @@ router.put('/departments/:id', async (req, res) => {
   try {
     const dep = await Department.findById(req.params.id);
     if(dep) {
-      await Department.updateOne({_id: ObjectId(req.params.id)}, {$set: {name: name}});
+      await Department.updateOne({_id: req.params.id}, {$set: {name: name}});
       res.json({ message: 'OK' });
     } else {
       res.status(404).json({ message: 'Not found...' });
