@@ -21,6 +21,9 @@ describe('Department', () => {
       const testDepTwo = new Department({name: 'Department #2'});
       await testDepTwo.save();
     });
+    after(async () => {
+      await Department.deleteMany();
+    });
     it('should return all the data with "find" method', async () => {
       const departments = await Department.find();
       const expectedLength = 2;
@@ -29,10 +32,7 @@ describe('Department', () => {
       it('should return a proper document by "name" with "findOne" method', async () => {
       const department = await Department.findOne({ name: 'Department #1' });
       const expectedName = 'Department #1';
-      expect(department.name).to.be.equal('Department #1');
-    });
-    after(async () => {
-      await Department.deleteMany();
+      expect(department.name).to.be.equal(expectedName);
     });
   });
   describe('Creating data', () => {
