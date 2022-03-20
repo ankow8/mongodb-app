@@ -1,7 +1,7 @@
 const Employee = require('../models/employee.models');
 
 exports.getAll = async (req, res) => {
-  try{
+  try {
     res.json(await Employee.find().populate('department'));
   } catch(err) {
     res.status(500).json({message: err});

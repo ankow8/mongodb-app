@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const EmployeesControllers = require('../controllers/employees.controllers');
+const EmployeeController = require('../controllers/employees.controller.js');
 
-router.get('/employees', EmployeesControllers.getAll);
+router.get('/employees', EmployeeController.getAll);
 
-router.get('/employees/random', EmployeesControllers.getRandom);
+router.get('/employees/random', EmployeeController.getRandom);
 
-router.get('/employees/:id', EmployeesControllers.getById);
+router.get('/employees/:id', EmployeeController.getById);
 
-router.post('/employees', EmployeesControllers.postNewRecord);
+router.post('/employees', EmployeeController.postNewRecord);
 
-router.put('/employees/:id', EmployeesControllers.putById);
+router.put('/employees/:id', EmployeeController.putById);
 
-router.delete('/employees/:id', EmployeesControllers.deleteById);
+router.delete('/employees/:id', EmployeeController.deleteById);
 
 module.exports = router;

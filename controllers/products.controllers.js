@@ -33,7 +33,7 @@ exports.getById = async (req, res) => {
   }
 };
 
-exports.postnewRecord = async (req, res) => {
+exports.postNewRecord = async (req, res) => {
   try {
     const { name, client } = req.body;
     const newProduct = new Product({name: name, client: client});
